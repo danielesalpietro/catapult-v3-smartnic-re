@@ -116,6 +116,20 @@ ConnectX 3Pro is 40GbE capable and ConnectX 4Lx is 50GbE.
 - FPGA oscillator Y6 is 644.53125 MHz for PCIe card and 156.250 MHz for OCP card. This oscillator is supposed that clocks the FPGA communication with the Mellanox NIC ASIC. This makes sense that ConnectX 3Pro has a lower speed for interconnect with FPGA (maybe 40GbE or 10GbE?).
 - The dedicated JTAG header (J5) can't be used with some cheap USB Blaster clones.
 
+#### Part numbers and how to tell these cards apart from Catapult v2 boards  
+Sellers rarely use the Catapult codenames, so the part numbers printed on the label are the most reliable way to identify a listing.  
+A very common eBay title is `Microsoft HP Azure Network Adapter X930613-001 861309-001 FPGA 2x 40Gb PCIe`. That card is **not** one of the boards documented in this project: it's the Catapult v2 `'Storey Peak'` board (Stratix V GS, two QSFP+ cages, DDR3, no Mellanox NIC ASIC).  
+The quickest visual check is the number of QSFP cages: the Catapult v3 cards have a single QSFP+ cage next to the Mellanox NIC ASIC, the Catapult v2 PCIe cards have two.  
+
+| Board | Codename | FPGA | Network | Microsoft P/N | OEM P/N |
+|-------|----------|------|---------|---------------|---------|
+| Catapult v3 PCIe (this project) | Longs Peak | Arria 10 `10AXF40GAA` | 1x QSFP+ (50GbE) + ConnectX-4 Lx | M1037382-001 (listings also show M1040125-001, M1030299-001 and model `1768`). Bare PCB marked M1003380-005 | - |
+| Catapult v3 OCP mezzanine (this project) | Dragontails Peak | Arria 10 `10AXF40GAA` / `10AX090N3F40E2SG` | 1x QSFP+ + ConnectX-3 Pro | Unknown | - |
+| Catapult v2 PCIe | Storey Peak | Stratix V GS `5SGSKF40I3LNAC` | 2x QSFP+ (40GbE), no NIC ASIC | X930613-001 (Rev B) | HPE 861309-001, Dell DX1C5 / 0DX1C5 |
+| Catapult v2 PCIe | Pikes Peak | Stratix V | 2x QSFP+ (40GbE) | X900563-001 | - |
+
+The Catapult v2 part numbers come from reseller listings and the community projects linked in the external resources section, not from Microsoft documentation.  
+
 #### About the use of Quartus programmer and tools with the onboard USB programmer  
 When connected to a computer via USB, these boards are recognized as standard FTDI COM ports.  
 Even though some tools such TopJTAG Probe or OpenOCD allows to use the FTDI ports as JTAG programmers, the Quartus tools doesn't recognize these devices as valid programming hardware.  
@@ -243,6 +257,10 @@ There are some online resources mentioning these boards or the previous generati
   - https://github.com/wirebond/catapult_v2_pikes_peak
 - [MorriganR](https://github.com/MorriganR)'s GitHub repo for Catapult v2  
   - https://github.com/MorriganR/Microsoft-Catapult-DDR3L-pinout
+- [taylor891229](https://github.com/taylor891229)'s GitHub repo for Catapult v2 Storey Peak (X930613-001)
+  - https://github.com/taylor891229/catapult-v2-StoreyPeak-RE
+- [devops.lol](https://www.devops.lol/fpga-adventures/) comparison table of Storey Peak and Longs Peak boards with their part numbers
+  - https://www.devops.lol/fpga-adventures/
 - [@occamlab](https://twitter.com/occamlab)'s blog for Catapult v2
   - http://virtlab.occamlab.com/home/zapisnik/microsoft-catapult-v2
 - Open Compute Project documents  
