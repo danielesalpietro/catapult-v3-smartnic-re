@@ -7,6 +7,8 @@ L'obiettivo non è la parità di prestazioni o di sicurezza con Nitro, ma una pi
 didattica e sperimentale che ne riproduca i blocchi funzionali su hardware FPGA reperibile
 a basso costo.
 
+English version: [01_Nitro_lite_EN.md](01_Nitro_lite_EN.md)
+
 ---
 
 ## 1. Obiettivo e non-obiettivi
