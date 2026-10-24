@@ -98,6 +98,7 @@ The following tasks are pending:
 #### About the contents in this repo  
 There are the following folders in this repo:  
 - **Documents**: Contains several subfolders with pictures, datasheets, spreadsheets, etc.  
+- **Documents/UseCases**: Design notes for possible uses of these boards, e.g. [01_Nitro_lite.md](Documents/UseCases/01_Nitro_lite.md), a virtualization SmartNIC inspired by AWS Nitro (in Italian).  
 - **Projects**: Contains the Quartus projects organized in subfolders for each category.  
 Some projects have a `'Software'` subfolder containing the NIOS II EDS projects with the apps and BSP to be used in conjunction with the hardware project.
 
